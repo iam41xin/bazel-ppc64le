@@ -47,8 +47,13 @@ Find more background about Bazel in our [FAQ](http://bazel.build/faq.html).
 
 ```bash
 $ sudo   apt-get update && sudo apt-get install -y build-essential curl git libfreetype6-dev libpng12-dev libzmq3-dev pkg-config python-dev python-numpy python-pip software-properties-common swig zip zlib1g-dev libcurl3-dev
-$ git clone -b https://github.com/abdasgupta/bazel-ppc64le.git bazel
-$ cd bazel
+$ git clone https://github.com/iam41xin/bazel-ppc64le.git
+$ git clone https://github.com/iam41xin/grpc-java.git
+$ export PROTOC=/usr/local/bin/protoc
+$ cd grpc-java
+$ ./gradlew build
+$ ./gradlew install
+$ cd ../bazel
 $ echo "build --spawn_strategy=standalone --genrule_strategy=standalone" >>/tmp/.bazelrc
-$ BAZELRC=/tmp/bazelrc ./compile.sh
+$ BAZELRC=/tmp/.bazelrc ./compile.sh
 ```
